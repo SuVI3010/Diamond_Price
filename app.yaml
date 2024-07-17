@@ -1,2 +1,6 @@
-runtime: python37
-entrypoint: gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
+runtime: python39
+entrypoint: gunicorn -w 4 -k uvicorn.workers.UvicornWorker app:app
+instance_class: F4_1G
+handlers:
+- url: /.*
+  script: auto
